@@ -43,6 +43,48 @@ internal class Program
         }
     }
     #endregion
+
+    #region Question3
+    //Define a class Complex Number that represents a complex number with real and imaginary parts.
+    public class ComplexNumber
+    {
+        public double Real { get; set; }
+        public double Imaginary { get; set; }
+        public ComplexNumber(double real, double imaginary)
+        {
+            Real = real;
+            Imaginary = imaginary;
+        }
+        //adding method
+        public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)
+        {
+            return new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary);
+        }
+        //subtracting method
+        public static ComplexNumber operator -(ComplexNumber c1, ComplexNumber c2)
+        {
+            return new ComplexNumber(c1.Real - c2.Real, c1.Imaginary - c2.Imaginary);
+        }
+
+    }
+    #endregion
+
+    #region Question4
+    //a) Create a base class named Employee with method That Work as it prints    "Employee is  working".
+    //b) Create a derived class named Manager that overrides the Work method to print "Manager is managing". 
+    public class  Employee
+    {
+        public virtual void Work() => Console.WriteLine("Employee is working");
+    }
+    public class Manager : Employee
+    {
+        public override void Work()
+        {
+            base.Work();
+            Console.WriteLine("Manager is managing");
+        }
+    }
+    #endregion
     public static void Main(string[] args)
     {
         #region Question1

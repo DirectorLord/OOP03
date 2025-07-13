@@ -85,6 +85,36 @@ internal class Program
         }
     }
     #endregion
+
+    #region Question5
+    //Create a base class BaseClass with a virtual method DisplayMessage that prints  "Message from BaseClass".
+    public class BaseClass
+    {
+        public virtual void DisplayMessage()
+        {
+            Console.WriteLine("Message from BaseClass");
+        }
+    }
+    //b) Create a derived class DerivedClass1 that overrides the DisplayMessage method using the override keyword.
+    public class DerivedClass1 : BaseClass
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Message from DerivedClass1");
+        }
+    }
+    //C) Create another derived class DerivedClass2 that hides the DisplayMessage method using the new keyword.
+    public class DerivedClass2 : BaseClass
+    {
+        public new void DisplayMessage()
+        {
+            Console.WriteLine("Message from DerivedClass2");
+        }
+    }
+    //the override keyword allows the derived class to provide a new implementation of the method, and provides polymorphism
+    //allowing the method to be called on a base class reference
+    //the new keyword hides the base class method and provide compile time binding
+    #endregion
     public static void Main(string[] args)
     {
         #region Question1

@@ -115,6 +115,49 @@ internal class Program
     //allowing the method to be called on a base class reference
     //the new keyword hides the base class method and provide compile time binding
     #endregion
+
+    #region Part02
+    // making a class and its constructor
+    public class Duration
+    {
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+        public Duration(int hours, int minutes, int seconds)
+        {
+            Hours = hours;
+            Minutes = minutes;
+            Seconds = seconds;
+        }
+        //total duration in seconds
+        public Duration(int totalSeconds)
+        {
+            Hours = totalSeconds / 3600;
+            Minutes = (totalSeconds % 3600) / 60;
+            Seconds = totalSeconds % 60;
+        }
+        //Override All System. Object Members [To String(), Equals(),GetHashCode() ] .
+        public override string ToString()
+        {
+            return $"{Hours}:h {Minutes}:m {Seconds}:s";
+        }
+        //copilot
+        //public override bool Equals(object? obj)
+        //{
+        //    if (obj is Duration duration)
+        //    {
+        //        return Hours == duration.Hours && Minutes == duration.Minutes && Seconds == duration.Seconds;
+        //    }
+        //    return false;
+        //}
+        //public override int GetHashCode()
+        //{
+        //    return HashCode.Combine(Hours, Minutes, Seconds);
+        //}
+        //???
+
+    }
+    #endregion
     public static void Main(string[] args)
     {
         #region Question1

@@ -1,7 +1,5 @@
 ﻿namespace OOP03;
 using System;
-using System.Drawing;
-
 internal class Program
 {
     #region Question1
@@ -155,7 +153,45 @@ internal class Program
         //    return HashCode.Combine(Hours, Minutes, Seconds);
         //}
         //???
+        //adding 2 durations
+        public static Duration operator +(Duration d1, Duration d2)
+        {
+            int totalSeconds = (d1.Hours * 3600 + d1.Minutes * 60 + d1.Seconds) + (d2.Hours * 3600 + d2.Minutes * 60 + d2.Seconds);
+            return new Duration(totalSeconds);
+        }
 
+        //operator + for adding seconds
+        public static Duration operator +(Duration d, int seconds)
+        {
+            int totalSeconds = (d.Hours * 3600 + d.Minutes * 60 + d.Seconds) + seconds;
+            return new Duration(totalSeconds);
+        }
+        //operator - for 2 durations
+        public static Duration operator -(Duration d1, Duration d2)
+        {
+            int totalSeconds1 = (d1.Hours * 3600 + d1.Minutes * 60 + d1.Seconds);
+            int totalSeconds2 = (d2.Hours * 3600 + d2.Minutes * 60 + d2.Seconds);
+            int totalSeconds = totalSeconds1 - totalSeconds2;
+            return new Duration(totalSeconds);
+        }
+        // operators for comparing durations
+        public static bool operator >(Duration d1 , Duration d2)
+        {
+            int totalSeconds1 = (d1.Hours * 3600 + d1.Minutes * 60 + d1.Seconds);
+            int totalSeconds2 = (d2.Hours * 3600 + d2.Minutes * 60 + d2.Seconds);
+            return totalSeconds1 > totalSeconds2;
+        }
+        public static bool operator <(Duration d1, Duration d2)
+        {
+            int totalSeconds1 = (d1.Hours * 3600 + d1.Minutes * 60 + d1.Seconds);
+            int totalSeconds2 = (d2.Hours * 3600 + d2.Minutes * 60 + d2.Seconds);
+            return totalSeconds1 < totalSeconds2;
+        }
+        //adding seconds
+        // Duration((d.Hours * 3600 + d.Minutes * 60 + d.Seconds) + seconds);
+        // adding durations
+        // int totalSeconds = (d1.Hours * 3600 + d1.Minutes * 60 + d1.Seconds) + (d2.Hours* 3600 + d2.Minutes* 60 + d2.Seconds);
+        //make one, then copy paste it, then just edit them 
     }
     #endregion
     public static void Main(string[] args)
